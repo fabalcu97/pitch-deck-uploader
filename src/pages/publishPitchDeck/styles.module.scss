@@ -1,0 +1,10 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.publishPitchDeckContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 16px;
+}

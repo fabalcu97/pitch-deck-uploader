@@ -1,0 +1,18 @@
+$primary-color: #ccd5ae;
+$secondary-color: #e9edc9;
+$text-color: #d4a373;
+$background-color: #fefae0;
+$secondary-background-color: #fefae0;
+
+$breakpoints: (
+  phone: 425px,
+  tablet: 768px,
+  laptop: 1024px,
+  laptopL: 1440px,
+);
+
+$xs: '<=phone';
+$sm: '>phone', '<=tablet';
+$md: '>tablet', '<=laptop';
+$lg: '>laptop', '<=laptopL';
+$xl: '>laptopL';

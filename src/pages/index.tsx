@@ -9,10 +9,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/publish-pitch-deck' element={<PublishPitchDeck />} />
-        <Route path='/list-pitch-decks' element={<ListPitchDecks />} />
-        <Route path='/pitch-deck/:id' element={<PitchDeck />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/publish-pitch-deck" element={<PublishPitchDeck />} />
+        <Route path="/list-pitch-decks" element={<ListPitchDecks />} />
+        <Route path="/pitch-deck/:id" element={<PitchDeck />} />
       </Routes>
     </BrowserRouter>
   );

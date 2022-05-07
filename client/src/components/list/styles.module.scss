@@ -1,0 +1,10 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.listContainer {
+  flex: 1 1 auto;
+
+  * > ::-webkit-scrollbar {
+    display: none;
+  }
+}

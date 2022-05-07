@@ -18,11 +18,7 @@ function App() {
         <Route path='/list-pitch-decks' element={<ListPitchDecks />} />
         <Route path='/pitch-deck/:id' element={<PitchDeck />} />
       </Routes>
-      <ToastContainer
-        position='top-center'
-        closeOnClick
-        closeButton={false}
-      />
+      <ToastContainer position='top-center' closeOnClick closeButton={false} />
     </BrowserRouter>
   );
 }

@@ -38,3 +38,20 @@ main {
 .toastBody {
   font-size: 18px !important;
 }
+
+a {
+  color: inherit;
+
+  &:link {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}

@@ -1,8 +1,8 @@
-$primary-color: #ccd5ae;
-$secondary-color: #e9edc9;
-$text-color: #d4a373;
-$background-color: #fefae0;
-$secondary-background-color: #fefae0;
+$primary-color: #b8d8d8;
+$secondary-color: #112b3c;
+$text-color: #205375;
+$background-color: #efefef;
+$secondary-background-color: #f66b0e;
 
 $breakpoints: (
   phone: 425px,
@@ -16,3 +16,9 @@ $sm: '>phone', '<=tablet';
 $md: '>tablet', '<=laptop';
 $lg: '>laptop', '<=laptopL';
 $xl: '>laptopL';
+
+:root {
+  --toastify-color-progress-light: #112b3c !important;
+  --toastify-color-light: #f66b0e !important;
+  --toastify-text-color-light: #112b3c !important;
+}

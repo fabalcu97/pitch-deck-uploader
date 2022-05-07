@@ -6,6 +6,7 @@ import { BaseComponentProps } from 'utils/types/baseComponent';
 import { PitchDeckType } from 'utils/types/pitchDeck';
 
 import Button from 'components/button';
+import Header from 'components/header';
 import VirtualizedList from 'components/list';
 import PitchDeckListItem from 'components/pitchDeckItem';
 import Text from 'components/text';
@@ -29,16 +30,14 @@ function ListPitchDecks(props: Props) {
 
   return (
     <main className={clsx([styles.listPitchDecksContainer, containerStyle])}>
-      <Text variant={'title'}>Pitch Decks</Text>
-      <div className={styles.header}>
-        <Button label={'Back'} href='/' variant='secondary' />
-        <TextInput
-          Icon={SearchIcon}
-          placeholder='Search company'
-          onChange={(ev) => setSearchValue(ev.target.value)}
-          containerStyle={styles.searchBar}
-        />
-      </div>
+      <Header title='' backButton />
+      <Text variant='title'>Pitch Decks</Text>
+      <TextInput
+        Icon={SearchIcon}
+        placeholder='Search company'
+        onChange={(ev) => setSearchValue(ev.target.value)}
+        containerStyle={styles.searchBar}
+      />
       <VirtualizedList<PitchDeckType>
         RenderItem={({ index, style }) => (
           <PitchDeckListItem

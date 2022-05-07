@@ -4,7 +4,6 @@
 .publishPitchDeckContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   .formContainer {
@@ -18,7 +17,7 @@
     .buttonGroup {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
 
       .button {
         @include media($xs...) {

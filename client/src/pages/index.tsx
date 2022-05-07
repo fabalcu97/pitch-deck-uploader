@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import NotFound from 'pages/notFound';
 
 import Home from './home';
 import ListPitchDecks from './listPitchDecks';
+import NotFound from './notFound';
 import PitchDeck from './pitchDeck';
 import PublishPitchDeck from './publishPitchDeck';
 

@@ -5,6 +5,7 @@ import { BaseComponentProps } from 'utils/types/baseComponent';
 
 import Button from 'components/button';
 import FileInput from 'components/fileInput';
+import Header from 'components/header';
 import Text from 'components/text';
 import TextInput from 'components/textInput';
 
@@ -38,6 +39,7 @@ function PublishPitchDeck(props: Props) {
 
   return (
     <main className={clsx([styles.publishPitchDeckContainer, containerStyle])}>
+      <Header title='' backButton />
       <Text variant='title'>Complete your company information</Text>
       <form className={styles.formContainer} onSubmit={onSubmit}>
         <TextInput
@@ -47,12 +49,6 @@ function PublishPitchDeck(props: Props) {
         />
         <FileInput onFileSelected={onFileSelected} />
         <div className={styles.buttonGroup}>
-          <Button
-            containerStyle={styles.button}
-            label='Back'
-            variant='secondary'
-            href='/'
-          />
           <Button
             containerStyle={styles.button}
             label='Submit'

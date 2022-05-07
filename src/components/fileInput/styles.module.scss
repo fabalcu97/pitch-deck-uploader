@@ -1,3 +1,45 @@
-.homeContainer {
-  border: 1px solid black;
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.fileInputContainer {
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color;
+  padding: 16px;
+  border-radius: 10px;
+  color: $text-color;
+  font-size: large;
+  min-width: 50vw;
+  min-height: 150px;
+
+  .innerContainer {
+    border: 2px dashed $text-color;
+    border-radius: 10px;
+    padding: 16px;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    .message {
+      text-align: center;
+
+      .fileLabel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: medium;
+
+        span {
+          margin: 0 5px;
+        }
+
+        div {
+          display: flex;
+          align-self: center;
+        }
+      }
+    }
+  }
 }

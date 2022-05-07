@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { BaseComponentProps } from 'utils/types/baseComponent';
 
 import Button from 'components/button';
+import Text from 'components/text';
 
 import styles from './styles.module.scss';
 
@@ -16,10 +16,8 @@ function NotFound(props: Props) {
 
   return (
     <main className={clsx([styles.notFoundContainer, containerStyle])}>
-      <div className={styles.title}>Not found!</div>
-      <div className={styles.subtitle}>
-        This page doesn't exist. Try going back.
-      </div>
+      <Text variant={'title'}>Not found!</Text>
+      <Text variant={'subtitle'}>This page doesn't exist. Try going back.</Text>
       <Button label='Home' href='/' />
     </main>
   );

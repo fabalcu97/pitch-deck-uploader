@@ -5,6 +5,7 @@ import { BaseComponentProps } from 'utils/types/baseComponent';
 
 import Button from 'components/button';
 import FileInput from 'components/fileInput';
+import Text from 'components/text';
 import TextInput from 'components/textInput';
 
 import styles from './styles.module.scss';
@@ -37,7 +38,7 @@ function PublishPitchDeck(props: Props) {
 
   return (
     <main className={clsx([styles.publishPitchDeckContainer, containerStyle])}>
-      <div className={styles.title}>Complete your company information</div>
+      <Text variant='title'>Complete your company information</Text>
       <form className={styles.formContainer} onSubmit={onSubmit}>
         <TextInput
           required

@@ -8,6 +8,7 @@ import { PitchDeckType } from 'utils/types/pitchDeck';
 import Button from 'components/button';
 import VirtualizedList from 'components/list';
 import PitchDeckListItem from 'components/pitchDeckItem';
+import Text from 'components/text';
 import TextInput from 'components/textInput';
 
 import styles from './styles.module.scss';
@@ -28,7 +29,7 @@ function ListPitchDecks(props: Props) {
 
   return (
     <main className={clsx([styles.listPitchDecksContainer, containerStyle])}>
-      <span className={styles.title}>Pitch Decks</span>
+      <Text variant={'title'}>Pitch Decks</Text>
       <div className={styles.header}>
         <Button label={'Back'} href='/' variant='secondary' />
         <TextInput

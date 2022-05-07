@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import NotFound from 'pages/notFound';
 
 import Home from './home';
 import ListPitchDecks from './listPitchDecks';
@@ -17,6 +18,7 @@ function App() {
         <Route path='/publish-pitch-deck' element={<PublishPitchDeck />} />
         <Route path='/list-pitch-decks' element={<ListPitchDecks />} />
         <Route path='/pitch-deck/:id' element={<PitchDeck />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <ToastContainer position='top-center' closeOnClick closeButton={false} />
     </BrowserRouter>

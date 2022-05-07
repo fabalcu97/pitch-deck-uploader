@@ -1,0 +1,48 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.buttonContainer {
+  position: relative;
+
+  .button {
+    width: inherit;
+    background-color: $secondary-color;
+    border: 0;
+    padding: 16px;
+    margin: 0 5px;
+    border-radius: 10px;
+    color: $background-color;
+    font-size: medium;
+    font-weight: 700;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+
+    &.secondary {
+      background-color: gray;
+      color: $background-color;
+    }
+
+    &:hover {
+      background-color: $secondary-background-color;
+      cursor: pointer;
+    }
+
+    @include media($xs...) {
+      margin: 10px 0;
+    }
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a:active {
+    text-decoration: none;
+  }
+}

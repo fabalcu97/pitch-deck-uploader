@@ -6,20 +6,27 @@
   display: flex;
   flex-direction: column;
 
-  input {
+  .inputContainer {
     background-color: $primary-color;
-    border: 0;
     padding: 16px;
     border-radius: 10px;
     color: $text-color;
-    font-size: large;
+    display: flex;
+    align-items: center;
 
-    &::placeholder {
-      color: $text-color;
-    }
+    input {
+      flex: 1;
+      margin-left: 5px;
+      background-color: transparent;
+      border: 0;
+      font-size: large;
 
-    &:focus {
-      outline: 1px solid $secondary-color;
+      &::placeholder {
+        color: $text-color;
+      }
+      &:focus {
+        outline: none;
+      }
     }
   }
 

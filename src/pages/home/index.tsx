@@ -1,18 +1,22 @@
+import Button from 'components/button';
 import React from 'react';
 import styles from './styles.module.scss';
 
 function Home() {
   return (
-    <div className={styles.homeContainer}>
+    <main className={styles.homeContainer}>
       <div className={styles.container}>
         <div className={styles.title}>Welcome!</div>
         <div className={styles.subtitle}>What would you like to do?</div>
         <div className={styles.buttonGroup}>
-          <button className={styles.button}>Publish a pitch deck</button>
-          <button className={styles.button}>See available pitch decks</button>
+          <Button label='Publish a pitch deck' href={'/publish-pitch-deck'} />
+          <Button
+            label='See available pitch decks'
+            href={'/list-pitch-decks'}
+          />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

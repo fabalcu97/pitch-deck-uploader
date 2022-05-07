@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
 import Home from './home';
-import PublishPitchDeck from './publishPitchDeck';
 import ListPitchDecks from './listPitchDecks';
 import PitchDeck from './pitchDeck';
-import { ToastContainer } from 'react-toastify';
+import PublishPitchDeck from './publishPitchDeck';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {

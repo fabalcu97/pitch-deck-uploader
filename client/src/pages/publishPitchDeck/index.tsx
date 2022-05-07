@@ -1,10 +1,12 @@
+import React, { FormEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 import clsx from 'clsx';
+import { BaseComponentProps } from 'utils/types/baseComponent';
+
 import Button from 'components/button';
 import FileInput from 'components/fileInput';
 import TextInput from 'components/textInput';
-import React, { FormEvent, useState } from 'react';
-import { toast } from 'react-toastify';
-import { BaseComponentProps } from 'utils/types/baseComponent';
+
 import styles from './styles.module.scss';
 
 type CompanyRegistrationForm = {

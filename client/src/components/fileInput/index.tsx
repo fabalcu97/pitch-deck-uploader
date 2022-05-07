@@ -1,9 +1,10 @@
-import { FileIcon, RemoveIcon } from 'assets/icons';
-import clsx from 'clsx';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { FileIcon, RemoveIcon } from 'assets/icons';
+import clsx from 'clsx';
 import { useIsMobile } from 'utils/hooks/useIsMobile';
 import { BaseComponentProps } from 'utils/types/baseComponent';
+
 import styles from './styles.module.scss';
 
 type Props = {

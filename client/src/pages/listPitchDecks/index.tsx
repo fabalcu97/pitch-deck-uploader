@@ -1,6 +1,7 @@
-import { BaseComponentProps } from 'utils/types/baseComponent';
-import clsx from 'clsx';
 import React from 'react';
+import clsx from 'clsx';
+import { BaseComponentProps } from 'utils/types/baseComponent';
+
 import styles from './styles.module.scss';
 
 type Props = {} & BaseComponentProps;

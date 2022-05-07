@@ -1,7 +1,7 @@
-import clsx from 'clsx';
 import React, { InputHTMLAttributes } from 'react';
-
+import clsx from 'clsx';
 import { BaseComponentProps } from 'utils/types/baseComponent';
+
 import styles from './styles.module.scss';
 
 type Props = {

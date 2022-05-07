@@ -1,8 +1,9 @@
-import { BaseComponentProps } from 'utils/types/baseComponent';
-import clsx from 'clsx';
 import React, { ButtonHTMLAttributes, useMemo } from 'react';
-import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+import { BaseComponentProps } from 'utils/types/baseComponent';
+
+import styles from './styles.module.scss';
 
 type Props = {
   label: string;

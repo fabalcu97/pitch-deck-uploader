@@ -1,5 +1,7 @@
-import Button from 'components/button';
 import React from 'react';
+
+import Button from 'components/button';
+
 import styles from './styles.module.scss';
 
 function Home() {

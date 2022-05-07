@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useWindowSize } from './useWindowSize';
 
 const MOBILE_WIDTH = 425;

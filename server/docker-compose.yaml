@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  mongo_db:
+    container_name: mongo_db
+    image: mongo
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    volumes:
+      - mongo-volume:/data/db
+      - ./docker-scripts/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=adminPass
+      - MONGO_INITDB_DATABASE=admin
+
+    networks:
+      - backend-network
+
+  server:
+    depends_on:
+      - mongo_db
+    container_name: server
+    image: server:0.0.1
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: yarn start:debug
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - backend-network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    env_file:
+      - ./.docker.env
+
+networks:
+  backend-network:
+    driver: bridge
+
+volumes:
+  mongo-volume:

@@ -6,24 +6,35 @@ import {
   NotFoundException,
   Param,
   Post,
+  Res,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { UploadedFile as UploadedFileType } from 'src/core/types/file';
+import { Response } from 'express';
+import {
+  supportedMimeTypesArray,
+  SupportedMimeTypesEnum,
+  UploadedFile as UploadedFileType,
+} from 'src/core/types/file';
 import { PitchDeck } from 'src/pitch-deck/models/pitchDeck.model';
 import { PitchDeckService } from 'src/pitch-deck/pitch-deck.service';
 import { CreatePitchDeckDto } from 'src/pitch-deck/types/pitchDeck.dto';
 
 @Controller('pitch-deck')
 export class PitchDeckController {
-  supportedMimeTypes = [
-    'application/pdf',
-    'application/vnd.ms-powerpoint',
-    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-  ];
+  supportedMimeTypes = supportedMimeTypesArray;
 
   constructor(private pitchDeckService: PitchDeckService) {}
+
+  @Get('/:id/image/:page')
+  async serveAvatar(
+    @Param('id') pitchDeckId: string,
+    @Param('page') page: number,
+    @Res() res: Response,
+  ): Promise<any> {
+    res.sendFile(`${pitchDeckId}-${page}.png`, { root: 'media' });
+  }
 
   @Get('')
   async findAll(): Promise<PitchDeck[]> {
@@ -48,14 +59,15 @@ export class PitchDeckController {
     if (!file) {
       throw new BadRequestException('File is required');
     }
-    if (!this.supportedMimeTypes.includes(file.mimetype)) {
+    if (
+      !this.supportedMimeTypes.includes(file.mimetype as SupportedMimeTypesEnum)
+    ) {
       throw new BadRequestException('File not supported');
     }
-    const images = await this.pitchDeckService.fileToImages(file);
     const newPitchDeck = await this.pitchDeckService.create({
       companyName: pitchDeck.companyName,
-      images,
     });
+    await this.pitchDeckService.generateImages(newPitchDeck, file);
     return newPitchDeck;
   }
 }

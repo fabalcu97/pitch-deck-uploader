@@ -6,6 +6,7 @@ import {
   PitchDeck,
   PitchDeckSchema,
 } from 'src/pitch-deck/models/pitchDeck.model';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import {
     ]),
   ],
   controllers: [PitchDeckController],
-  providers: [PitchDeckService],
+  providers: [PitchDeckService, ConfigService],
 })
 export class PitchDeckModule {}

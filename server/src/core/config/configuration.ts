@@ -1,10 +1,12 @@
 export type DatabaseConfig = {
   uri: string;
-  host: string;
-  user: string;
-  password: string;
-  dbName: string;
+};
+
+export type ConfigType = {
+  database: DatabaseConfig;
   port: number;
+  mediaPath: string;
+  env: string;
 };
 
 export default () => {
@@ -15,12 +17,9 @@ export default () => {
   const dbPort = parseInt(process.env.MONGODB_PORT, 10) || 27017;
   return {
     port: parseInt(process.env.PORT, 10) || 3000,
+    mediaPath: process.env.MEDIA_PATH || '/src/../media',
+    env: process.env.ENV || 'dev',
     database: {
-      host,
-      user,
-      password,
-      dbName,
-      port: dbPort,
       uri: `mongodb://${user}:${password}@${host}${
         dbPort ? ':' + dbPort : ''
       }/${dbName}`,

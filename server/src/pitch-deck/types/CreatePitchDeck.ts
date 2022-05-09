@@ -1,4 +1,4 @@
 export class CreatePitchDeck {
   companyName: string;
-  images: string[];
+  images?: string[];
 }

@@ -35,8 +35,9 @@ services:
     networks:
       - backend-network
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - .:/home/app
+      - ./node_modules:/usr/src/app/node_modules
+      - /home/app/media
     restart: unless-stopped
     env_file:
       - ./.docker.env

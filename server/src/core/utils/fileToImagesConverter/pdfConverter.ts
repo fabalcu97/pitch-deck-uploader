@@ -34,7 +34,7 @@ class PDFToImagesConverter extends FileToImagesConverter {
           throw new Error('Error storing images');
         }
       });
-      return imagePath;
+      return `/pitch-deck/${id}/image/${image.page}`;
     });
 
     await Promise.all(imagesPaths);

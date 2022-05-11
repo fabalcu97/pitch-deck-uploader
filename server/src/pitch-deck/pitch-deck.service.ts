@@ -9,6 +9,7 @@ import {
   PitchDeckDocument,
 } from 'src/pitch-deck/models/pitchDeck.model';
 import { CreatePitchDeck } from 'src/pitch-deck/types/CreatePitchDeck';
+import { PitchDeckListQueryParams } from 'src/pitch-deck/types/PitchDeckListQueryParams';
 
 @Injectable()
 export class PitchDeckService {
@@ -17,6 +18,14 @@ export class PitchDeckService {
     private pitchDeckModel: Model<PitchDeckDocument>,
     private configService: ConfigService,
   ) {}
+
+  async list(queryParams: PitchDeckListQueryParams): Promise<PitchDeck[]> {
+    return this.pitchDeckModel.find({
+      ...(!!queryParams.companyName && {
+        companyName: { $regex: queryParams.companyName, $options: 'i' },
+      }),
+    });
+  }
 
   async findById(id: string): Promise<PitchDeck> {
     return this.pitchDeckModel.findById(id);

@@ -6,6 +6,7 @@ import {
   NotFoundException,
   Param,
   Post,
+  Query,
   Res,
   UploadedFile,
   UseInterceptors,
@@ -28,7 +29,7 @@ export class PitchDeckController {
   constructor(private pitchDeckService: PitchDeckService) {}
 
   @Get('/:id/image/:page')
-  async serveAvatar(
+  async serveImage(
     @Param('id') pitchDeckId: string,
     @Param('page') page: number,
     @Res() res: Response,
@@ -37,8 +38,10 @@ export class PitchDeckController {
   }
 
   @Get('')
-  async findAll(): Promise<PitchDeck[]> {
-    return [];
+  async findAll(
+    @Query('companyName') companyName: string,
+  ): Promise<PitchDeck[]> {
+    return this.pitchDeckService.list({ companyName });
   }
 
   @Get(':id')

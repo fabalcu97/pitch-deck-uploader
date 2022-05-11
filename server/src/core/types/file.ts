@@ -8,6 +8,4 @@ export enum SupportedMimeTypesEnum {
 
 export const supportedMimeTypesArray: SupportedMimeTypesEnum[] = [
   SupportedMimeTypesEnum.PDF,
-  SupportedMimeTypesEnum.PPT,
-  SupportedMimeTypesEnum.PPTX,
 ];

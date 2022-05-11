@@ -7,12 +7,15 @@ WORKDIR /home/app
 
 COPY package*.json ./
 
-RUN apt-get update
+RUN apt-get update --fix-missing
 RUN apt-get -y install curl gnupg
 RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash -
 RUN apt-get -y install nodejs
 RUN apt-get -y install ghostscript
 RUN apt-get -y install graphicsmagick
+RUN apt-get -y install libreoffice-dev
+RUN apt-get -y install imagemagick
+RUN apt-get -y install poppler-utils
 RUN npm install -g yarn
 
 RUN yarn add glob rimraf

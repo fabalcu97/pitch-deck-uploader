@@ -26,9 +26,6 @@ function FileInput(props: Props) {
     noClick: !!selectedFile,
     accept: {
       'application/pdf': [],
-      'application/vnd.ms-powerpoint': [],
-      'application/vnd.openxmlformats-officedocument.presentationml.presentation':
-        [],
     },
   });
 

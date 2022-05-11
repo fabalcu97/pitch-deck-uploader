@@ -18,6 +18,14 @@
     text-decoration: none;
     text-align: center;
 
+    &::after {
+      display: block;
+      content: attr(data-label);
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
     &.secondary {
       background-color: gray;
       color: $background-color;

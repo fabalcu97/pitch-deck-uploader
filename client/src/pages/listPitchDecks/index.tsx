@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { SearchIcon } from 'assets/icons';
 import clsx from 'clsx';
-import { generatePitchDecks } from 'utils/factories/pitchDeck';
+import useGetPitchDecks from 'utils/hooks/api/useGetPitchDecks';
+import { useDebounce } from 'utils/hooks/useDebounce';
 import { BaseComponentProps } from 'utils/types/baseComponent';
 import { PitchDeckType } from 'utils/types/pitchDeck';
 
-import Button from 'components/button';
 import Header from 'components/header';
 import VirtualizedList from 'components/list';
 import PitchDeckListItem from 'components/pitchDeckItem';
@@ -18,15 +19,25 @@ type Props = {} & BaseComponentProps;
 
 ListPitchDecks.defaultProps = {};
 
-const elements: PitchDeckType[] = generatePitchDecks(100);
-
 function ListPitchDecks(props: Props) {
   const { containerStyle } = props;
   const [searchValue, setSearchValue] = useState('');
+  const [pitchDecksList, setPitchDecksList] = useState<PitchDeckType[]>([]);
+  const debouncedSearchTerm: string = useDebounce<string>(searchValue, 250);
+  const { data, isLoading, error } = useGetPitchDecks(debouncedSearchTerm);
 
   useEffect(() => {
-    console.log(searchValue);
-  }, [searchValue]);
+    if (data) {
+      setPitchDecksList(data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (error) {
+      toast('Something went wrong, please try again');
+      console.error(error);
+    }
+  }, [error]);
 
   return (
     <main className={clsx([styles.listPitchDecksContainer, containerStyle])}>
@@ -42,11 +53,12 @@ function ListPitchDecks(props: Props) {
         RenderItem={({ index, style }) => (
           <PitchDeckListItem
             style={style}
-            key={elements[index].id}
-            data={elements[index]}
+            key={pitchDecksList[index]._id}
+            data={pitchDecksList[index]}
           />
         )}
-        count={elements.length}
+        isLoading={isLoading}
+        count={pitchDecksList.length}
         itemHeight={60}
         containerStyle={styles.listContainer}
       />

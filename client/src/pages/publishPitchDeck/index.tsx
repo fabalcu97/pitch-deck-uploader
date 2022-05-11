@@ -1,6 +1,8 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import clsx from 'clsx';
+import useCreatePitchDeck from 'utils/hooks/api/useCreatePitchDeck';
 import { BaseComponentProps } from 'utils/types/baseComponent';
 
 import Button from 'components/button';
@@ -22,8 +24,10 @@ PublishPitchDeck.defaultProps = {};
 
 function PublishPitchDeck(props: Props) {
   const { containerStyle } = props;
+  const navigate = useNavigate();
   const [companyName, setCompanyName] = useState('');
   const [file, setFile] = useState<File>();
+  const { mutate, isLoading, error, isSuccess } = useCreatePitchDeck();
 
   const onFileSelected = (selectedFile?: File) => setFile(selectedFile);
 
@@ -34,8 +38,22 @@ function PublishPitchDeck(props: Props) {
       toast('Please select a file', { toastId: 'missing-file' });
       return;
     }
-    console.log({ data });
+    mutate({ companyName: data.companyName, file });
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast('Pitch published successfully');
+      navigate('/');
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (error) {
+      toast('Something went wrong, please try again', { type: 'error' });
+      console.error(error);
+    }
+  }, [error]);
 
   return (
     <main className={clsx([styles.publishPitchDeckContainer, containerStyle])}>
@@ -50,6 +68,7 @@ function PublishPitchDeck(props: Props) {
         <FileInput onFileSelected={onFileSelected} />
         <div className={styles.buttonGroup}>
           <Button
+            loading={isLoading}
             containerStyle={styles.button}
             label='Submit'
             buttonProps={{ type: 'submit' }}

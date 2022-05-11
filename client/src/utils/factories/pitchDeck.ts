@@ -5,8 +5,8 @@ import { PitchDeckType } from 'utils/types/pitchDeck';
 export function generatePitchDeck(): PitchDeckType {
   return {
     companyName: faker.company.companyName(),
-    createdDate: faker.date.recent().toISOString(),
-    id: faker.datatype.uuid(),
+    dateCreated: faker.date.recent().toISOString(),
+    _id: faker.datatype.uuid(),
     images: [
       faker.image.business(),
       faker.image.business(),

@@ -1,6 +1,6 @@
 export type PitchDeckType = {
-  id: string;
-  createdDate: string;
+  _id: string;
+  dateCreated: string;
   companyName: string;
   images: string[];
 };

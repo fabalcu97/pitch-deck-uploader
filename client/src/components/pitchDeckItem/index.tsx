@@ -19,7 +19,7 @@ function PitchDeckListItem(props: Props) {
 
   return (
     <div style={style}>
-      <Link to={`/pitch-deck/${data.id}`}>
+      <Link to={`/pitch-deck/${data._id}`}>
         <div
           className={clsx([styles.pitchDeckListItemContainer, containerStyle])}>
           <span>{data.companyName}</span>

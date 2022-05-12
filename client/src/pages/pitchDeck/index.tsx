@@ -44,7 +44,7 @@ function PitchDeck(props: Props) {
       images.map((image: string, idx: number) => (
         <img
           key={idx}
-          className={styles.image}
+          className={clsx([styles.image, 'clickable'])}
           alt=''
           src={image}
           onClick={() => openImageViewer(idx)}

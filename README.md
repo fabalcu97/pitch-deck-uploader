@@ -17,8 +17,10 @@ In the frontend after uploading a pitch deck and in a different page, the user s
 - If you are not using docker, please use Ubuntu 20 and run the following commands to install some project dependencies:
   - `$ sudo apt-get install ghostscript`
   - `$ sudo apt-get -y install graphicsmagick`
+- Create a database in mongo since you are going to need to access to one.
 - After that, install the modules required using `yarn` to install them
 - Copy the `.env.example` file and rename it to `.env`. Inside the new file, fill the variables with the values needed to connect to the database as in the example.
+- Run `yarn start:dev` in order to start the server
 
 **Please don't forget to create a folder named `media` in the server folder. If you changed the `MEDIA_PATH` variable, please create the folder with the same name you set in that variable**
 

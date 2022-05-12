@@ -24,9 +24,11 @@ import { join } from 'path';
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<DatabaseConfig['uri']>('database.uri'),
-      }),
+      useFactory: async (configService: ConfigService) => {
+        return {
+          uri: configService.get<DatabaseConfig['uri']>('database.uri'),
+        };
+      },
       inject: [ConfigService],
     }),
     PitchDeckModule,

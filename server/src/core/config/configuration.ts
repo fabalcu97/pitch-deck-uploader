@@ -14,13 +14,13 @@ export default () => {
   const user = process.env.MONGODB_USER;
   const password = process.env.MONGODB_PASSWORD;
   const dbName = process.env.MONGODB_DB_NAME;
-  const dbPort = parseInt(process.env.MONGODB_PORT, 10) || 27017;
+  const dbPort = parseInt(process.env.MONGODB_PORT, 10);
   return {
     port: parseInt(process.env.PORT, 10) || 3000,
     mediaPath: process.env.MEDIA_PATH || '/src/../media',
     env: process.env.ENV || 'dev',
     database: {
-      uri: `mongodb://${user}:${password}@${host}${
+      uri: `mongodb+srv://${user}:${password}@${host}${
         dbPort ? ':' + dbPort : ''
       }/${dbName}`,
     } as DatabaseConfig,

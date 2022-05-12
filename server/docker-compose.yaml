@@ -40,7 +40,7 @@ services:
       - /home/app/media
     restart: unless-stopped
     env_file:
-      - ./.docker.env
+      - ./.env
 
 networks:
   backend-network:
